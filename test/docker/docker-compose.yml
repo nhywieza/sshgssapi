@@ -1,0 +1,20 @@
+version: "2.0"
+
+services:
+  kdc:
+    build: kdc
+  client:
+    build: client
+    depends_on:
+      - kdc
+      - service
+    volumes:
+      - ../../../../:/root/go/src/golang.org/x/crypto
+      - ../../../../../../../github.com/apcera/gssapi:/root/go/src/github.com/apcera/gssapi
+  service:
+    build: service
+    depends_on:
+      - kdc
+    volumes:
+          - ../../../../:/root/go/src/golang.org/x/crypto
+          - ../../../../../../../github.com/apcera/gssapi:/root/go/src/github.com/apcera/gssapi

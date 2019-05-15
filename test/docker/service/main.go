@@ -5,8 +5,8 @@ import (
 	"log"
 	"net"
 
+	"github.com/nhywieza/sshgssapi"
 	"golang.org/x/crypto/ssh"
-	"golang.org/x/crypto/ssh/gss"
 )
 
 func main() {
